@@ -1,7 +1,8 @@
 # dsaLearning
 
-20 Python DSA problems, one file each, with the statement, hints and test
-cases already written. The solutions are yours to fill in.
+20 core Python DSA problems plus 8 harder array problems, one file each, with
+the statement, hints and test cases already written. The solutions are yours to
+fill in.
 
 Every problem file is standalone: open it, replace the `raise NotImplementedError`
 with your solution, run the file, and it tells you which cases pass.
@@ -95,8 +96,24 @@ Output of a run looks like:
 |---|---------|------------|---------|------|
 | 20 | [Longest Substring Without Repeating Characters](07_interview_favourites/20_longest_substring_without_repeating.py) | Medium * | Sliding window + set/dict | [ ] |
 
-Problems marked `Medium *` (16 and 20) are the two that come up most often in
-interviews -- do those twice.
+### Bonus - Harder Array Problems
+
+Do these once the core arrays feel easy -- they are the array questions that
+actually get asked in interviews. Not a prerequisite for anything below them.
+
+| # | Problem | Difficulty | Pattern | Done |
+|---|---------|------------|---------|------|
+| 21 | [Majority Element](08_bonus_arrays_hard/21_majority_element.py) | Medium | Boyer-Moore voting | [ ] |
+| 22 | [Sort Colors (Dutch National Flag)](08_bonus_arrays_hard/22_sort_colors.py) | Medium | Three pointers / one pass | [ ] |
+| 23 | [Product of Array Except Self](08_bonus_arrays_hard/23_product_except_self.py) | Medium | Prefix / suffix products | [ ] |
+| 24 | [Maximum Product Subarray](08_bonus_arrays_hard/24_maximum_product_subarray.py) | Medium-Hard | Kadane variant (track min and max) | [ ] |
+| 25 | [Next Permutation](08_bonus_arrays_hard/25_next_permutation.py) | Medium-Hard | Scan from the right + reverse | [ ] |
+| 26 | [Merge Intervals](08_bonus_arrays_hard/26_merge_intervals.py) | Medium | Sort + sweep | [ ] |
+| 27 | [Find the Duplicate Number](08_bonus_arrays_hard/27_find_the_duplicate_number.py) | Medium-Hard | Floyd's cycle detection | [ ] |
+| 28 | [Trapping Rain Water](08_bonus_arrays_hard/28_trapping_rain_water.py) | Hard * | Two pointers / prefix maxima | [ ] |
+
+Problems marked with a `*` (16, 20 and 28) are the ones that come up most often
+in interviews -- do those twice.
 
 Several problems ask for more than one approach (with/without a set, with/without
 slicing, sorting vs frequency map). Each approach is a separate stub in the file
