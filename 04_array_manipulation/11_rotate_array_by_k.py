@@ -37,7 +37,22 @@ def rotate_with_slicing(arr, k):
     raise NotImplementedError("TODO: solve problem 11 -- rotate_with_slicing")
 
 
+def rotate(left, right, arr):
+    while left < right:
+        arr[left], arr[right] = arr[right], arr[left]
+        left += 1
+        right -= 1
+    return arr
+
+
 def rotate_without_slicing(arr, k):
+    if len(arr) == 0:
+        return []
+    k = k % len(arr)
+    rotate(0, len(arr) - 1, arr)
+    rotate(0, k - 1, arr)
+    rotate(k, len(arr) - 1, arr)
+    return arr
     """Same result, no slicing -- reverse in place or use index math."""
     raise NotImplementedError("TODO: solve problem 11 -- rotate_without_slicing")
 

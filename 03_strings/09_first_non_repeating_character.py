@@ -29,7 +29,14 @@ from checker import run_tests  # noqa: E402
 
 
 def first_non_repeating(s):
-    """Return the first character occurring exactly once, or None."""
+    s_data = {}
+    for data in s:
+        s_data[data] = s_data.get(data, 0) + 1
+
+    for data in s_data:
+        if s_data[data] == 1:
+            return data
+    return None
     raise NotImplementedError("TODO: solve problem 09 -- first_non_repeating")
 
 
@@ -37,11 +44,11 @@ def first_non_repeating(s):
 # Test cases: (arguments, expected)
 # ---------------------------------------------------------------------------
 TEST_CASES = [
-    (('aabbcddee',), 'c'),
-    (('swiss',), 'w'),
-    (('x',), 'x'),
-    (('aabb',), None),
-    (('',), None),
+    (("aabbcddee",), "c"),
+    (("swiss",), "w"),
+    (("x",), "x"),
+    (("aabb",), None),
+    (("",), None),
 ]
 
 COMPARE = None

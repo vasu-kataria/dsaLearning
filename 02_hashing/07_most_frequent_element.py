@@ -26,9 +26,21 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from checker import run_tests  # noqa: E402
+from collections import Counter
 
 
 def most_frequent(arr):
+    data = Counter(arr)
+    max_count = 0
+    key = 0
+    if len(arr) == 0:
+        return None
+    for value in data:
+        print(data[value], "value", value)
+        if max_count < data[value]:
+            max_count = max(max_count, data[value])
+            key = value
+    return key
     """Return the most frequently occurring element, or None."""
     raise NotImplementedError("TODO: solve problem 07 -- most_frequent")
 
@@ -39,7 +51,7 @@ def most_frequent(arr):
 TEST_CASES = [
     (([1, 2, 2, 3, 2, 4, 4],), 2),
     (([7, 7, 7, 1, 2],), 7),
-    ((['x', 'y', 'x'],), 'x'),
+    ((["x", "y", "x"],), "x"),
     (([5],), 5),
     (([],), None),
 ]

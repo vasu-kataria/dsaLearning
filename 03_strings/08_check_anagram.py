@@ -33,11 +33,32 @@ from checker import run_tests  # noqa: E402
 
 def is_anagram_sorting(s1, s2):
     """Return True if s1 and s2 are anagrams -- sorting approach."""
+    s2_data = sorted(s2)
+
+    s1_data = list(s1)
+
+    for i in range(len(s1_data)):
+        for j in range(i + 1, len(s1_data)):
+            if s1_data[i] > s1_data[j]:
+                s1_data[i], s1_data[j] = s1_data[j], s1_data[i]
+
+    return s1_data == s2_data
+
     raise NotImplementedError("TODO: solve problem 08 -- is_anagram_sorting")
 
 
 def is_anagram_frequency(s1, s2):
     """Return True if s1 and s2 are anagrams -- frequency map approach."""
+    s1_data = {}
+    for data in s1:
+        s1_data[data] = s1_data.get(data, 0) + 1
+
+    s2_data = {}
+    for data in s2:
+        s2_data[data] = s2_data.get(data, 0) + 1
+
+    return s1_data == s2_data
+
     raise NotImplementedError("TODO: solve problem 08 -- is_anagram_frequency")
 
 
@@ -45,12 +66,12 @@ def is_anagram_frequency(s1, s2):
 # Test cases: (arguments, expected)
 # ---------------------------------------------------------------------------
 TEST_CASES = [
-    (('listen', 'silent'), True),
-    (('hello', 'world'), False),
-    (('aab', 'abb'), False),
-    (('abc', 'ab'), False),
-    (('', ''), True),
-    (('anagram', 'nagaram'), True),
+    (("listen", "silent"), True),
+    (("hello", "world"), False),
+    (("aab", "abb"), False),
+    (("abc", "ab"), False),
+    (("", ""), True),
+    (("anagram", "nagaram"), True),
 ]
 
 COMPARE = None

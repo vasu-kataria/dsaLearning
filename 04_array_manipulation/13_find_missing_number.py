@@ -34,6 +34,17 @@ from checker import run_tests  # noqa: E402
 
 def missing_number_sum(arr):
     """Return the missing number from 1..len(arr)+1 -- sum formula."""
+    if len(arr) == 1 and arr[0] != 1:
+
+        return 1
+    for i in range(len(arr) - 1):
+        if arr[0] != 1:
+            return 1
+        if arr[i] > arr[i + 1]:
+            return arr[i]
+        if arr[i] + 1 != arr[i + 1]:
+            return arr[i] + 1
+    return len(arr) + 1
     raise NotImplementedError("TODO: solve problem 13 -- missing_number_sum")
 
 

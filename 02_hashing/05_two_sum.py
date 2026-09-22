@@ -33,7 +33,13 @@ from checker import run_tests  # noqa: E402
 
 def two_sum(arr, target):
     """Return the two indices whose values sum to target, or None."""
-    raise NotImplementedError("TODO: solve problem 05 -- two_sum")
+    result = {}
+    for i in range(len(arr)):
+        total = target - arr[i]
+        if total in result:
+            return [result[total], i]
+        result[arr[i]] = i
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -47,7 +53,7 @@ TEST_CASES = [
     (([1, 2, 3], 7), None),
 ]
 
-COMPARE = 'sorted'
+COMPARE = "sorted"
 
 SOLUTIONS = [two_sum]
 

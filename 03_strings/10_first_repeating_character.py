@@ -32,6 +32,12 @@ from checker import run_tests  # noqa: E402
 
 def first_repeating(s):
     """Return the first character seen twice while scanning, or None."""
+    s_data = {}
+    for data in s:
+        if s_data.get(data, 0) != 0:
+            return data
+        s_data[data] = s_data.get(data, 0) + 1
+    return None
     raise NotImplementedError("TODO: solve problem 10 -- first_repeating")
 
 
@@ -39,11 +45,11 @@ def first_repeating(s):
 # Test cases: (arguments, expected)
 # ---------------------------------------------------------------------------
 TEST_CASES = [
-    (('abcdeda',), 'd'),
-    (('abca',), 'a'),
-    (('aa',), 'a'),
-    (('abc',), None),
-    (('',), None),
+    (("abcdeda",), "d"),
+    (("abca",), "a"),
+    (("aa",), "a"),
+    (("abc",), None),
+    (("",), None),
 ]
 
 COMPARE = None

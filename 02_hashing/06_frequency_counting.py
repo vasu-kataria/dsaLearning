@@ -29,15 +29,20 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from checker import run_tests  # noqa: E402
+from collections import Counter
 
 
 def frequency_with_dict(arr):
     """Return {element: count} using a plain dict."""
+    result = {}
+    for data in arr:
+        result[data] = result.get(data, 0) + 1
+    return result
     raise NotImplementedError("TODO: solve problem 06 -- frequency_with_dict")
 
 
 def frequency_with_counter(arr):
-    """Return {element: count} using collections.Counter."""
+    return Counter(arr)
     raise NotImplementedError("TODO: solve problem 06 -- frequency_with_counter")
 
 
@@ -46,7 +51,7 @@ def frequency_with_counter(arr):
 # ---------------------------------------------------------------------------
 TEST_CASES = [
     (([1, 2, 2, 3, 1, 2, 4],), {1: 2, 2: 3, 3: 1, 4: 1}),
-    ((['a', 'a', 'b'],), {'a': 2, 'b': 1}),
+    ((["a", "a", "b"],), {"a": 2, "b": 1}),
     (([9],), {9: 1}),
     (([],), {}),
 ]
