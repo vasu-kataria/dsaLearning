@@ -13,7 +13,7 @@ from checker import check, load_problem, problem_files  # noqa: E402
 
 
 def main():
-    done = pending = broken = 0
+    done = pending = broken = partial = 0
     current_folder = None
 
     for path in problem_files():
@@ -32,13 +32,25 @@ def main():
         elif "fail" in statuses:
             mark, state = "[!]", "failing"
             broken += 1
+        elif "pending" in statuses:
+            # some approaches solved, others still stubs
+            left = [
+                f.__name__
+                for f, s in zip(module.SOLUTIONS, statuses)
+                if s == "pending"
+            ]
+            mark, state = "[~]", "partial -- still open: " + ", ".join(left)
+            partial += 1
         else:
             mark, state = "[x]", "solved"
             done += 1
         print(f"  {mark} {os.path.basename(path):<48} {state}")
 
-    total = done + pending + broken
-    print(f"\nsolved {done}/{total}   failing {broken}   todo {pending}\n")
+    total = done + pending + broken + partial
+    print(
+        f"\nsolved {done}/{total}   partial {partial}   "
+        f"failing {broken}   todo {pending}\n"
+    )
 
 
 if __name__ == "__main__":
